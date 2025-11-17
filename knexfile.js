@@ -1,47 +1,32 @@
-// Update with your config settings.
+//KnexがDBに接続するための設定一覧
 
-/**
- * @type { Object.<string, import("knex").Knex.Config> }
- */
+require("dotenv").config(); //envを読み込む
+
 module.exports = {
-
   development: {
-    client: 'sqlite3',
+    client: "postgresql",
     connection: {
-      filename: './dev.sqlite3'
-    }
-  },
-
-  staging: {
-    client: 'postgresql',
-    connection: {
-      database: 'my_db',
-      user:     'username',
-      password: 'password'
-    },
-    pool: {
-      min: 2,
-      max: 10
+      host: process.env.DB_HOST,
+      port: process.env.DB_PORT,
+      user: process.env.DB_USER,
+      password: process.env.DB_PASSWORD,
+      database: process.env.DB_NAME,
     },
     migrations: {
-      tableName: 'knex_migrations'
-    }
+      directory: "./migrations",
+    },
+    seeds: {
+      directory: "./seeds",
+    },
   },
-
   production: {
-    client: 'postgresql',
-    connection: {
-      database: 'my_db',
-      user:     'username',
-      password: 'password'
-    },
-    pool: {
-      min: 2,
-      max: 10
-    },
+    client: "postgresql",
+    connection: process.env.DATABASE_URL,
     migrations: {
-      tableName: 'knex_migrations'
-    }
-  }
-
+      directory: "./migrations",
+    },
+    seeds: {
+      directory: "./seeds",
+    },
+  },
 };

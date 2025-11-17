@@ -4,21 +4,47 @@ import StarRating from "./StarRating";
 import ReviewComment from "./ReviwComment";
 import ReviewSubmitButton from "./ ReviewSubmitButton";
 
-export default function AddReviewForm({ onClose, onSubmit }) {
+export default function AddReviewForm({ onClose }) {
   const [selectMovie, setSelectedMovie] = useState(null);
   const [rating, setRating] = useState(0);
   const [comment, setComment] = useState("");
 
-  const handleSubmit = () => {
-    const newReview = {
-      movie: selectMovie,
-      rating,
-      comment,
-      createdAt: new Date().toISOString(),
-    };
+  const handleSubmit = async () => {
+    if (!selectMovie) return; //映画が選ばれてなかったらreturn
 
-    onSubmit(newReview); // ★ App へレビューを渡す
-    onClose(); // フォームを閉じる
+    try {
+      //映画データをDBに保存
+      const movieRes = await fetch("/api/movies", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          tmdb_id: selectMovie.id,
+          title: selectMovie.title,
+          poster_path: selectMovie.poster_path,
+          release_date: selectMovie.release_date,
+          overview: selectMovie.overview,
+        }),
+      });
+
+      const savedMovie = await movieRes.json();
+      console.log("Movie saved => ", savedMovie);
+
+      //レビューをDBに保存
+      const reviewRes = await fetch("/api/reviews", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          movie_id: savedMovie.id,
+          rating,
+          comment,
+        }),
+      });
+
+      const savedReview = await reviewRes.json();
+      console.log("Review saved => ", savedReview);
+    } catch (err) {
+      alert("保存に失敗しました。", err);
+    }
   };
 
   return (
