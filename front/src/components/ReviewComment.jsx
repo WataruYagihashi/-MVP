@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function ReviwComment({ value, onChange }) {
+export default function ReviewComment({ value, onChange }) {
   return (
     <div>
       <textarea

@@ -1,10 +1,10 @@
 import { useState } from "react";
 import MovieSearch from "./MovieSearch";
 import StarRating from "./StarRating";
-import ReviewComment from "./ReviwComment";
-import ReviewSubmitButton from "./ ReviewSubmitButton";
+import ReviewComment from "./ReviewComment";
+import ReviewSubmitButton from "./ReviewSubmitButton";
 
-export default function AddReviewForm({ onClose }) {
+export default function AddReviewForm({ onClose, onSubmit }) {
   const [selectMovie, setSelectedMovie] = useState(null);
   const [rating, setRating] = useState(0);
   const [comment, setComment] = useState("");
@@ -42,6 +42,8 @@ export default function AddReviewForm({ onClose }) {
 
       const savedReview = await reviewRes.json();
       console.log("Review saved => ", savedReview);
+      onSubmit();
+      onClose();
     } catch (err) {
       alert("保存に失敗しました。", err);
     }
