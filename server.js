@@ -3,17 +3,35 @@ const express = require("express");
 const cors = require("cors");
 const path = require("path");
 
-// //Knex ポスグレ接続
-// const knex = require("knex")({
-//   client: "pg",
-//   connection: {
-//     host: process.env.DB_HOST,
-//     port: process.env.DB_PORT,
-//     user: process.env.DB_USER,
-//     password: process.env.DB_PASSWORD,
-//     database: process.env.DB_NAME,
-//   },
-// });
+//Knex ポスグレ接続
+const knex = require("knex")({
+  development: {
+    client: "postgresql",
+    connection: {
+      host: process.env.DB_HOST,
+      port: process.env.DB_PORT,
+      user: process.env.DB_USER,
+      password: process.env.DB_PASSWORD,
+      database: process.env.DB_NAME,
+    },
+    migrations: {
+      directory: "./migrations",
+    },
+    seeds: {
+      directory: "./seeds",
+    },
+  },
+  production: {
+    client: "postgresql",
+    connection: process.env.DATABASE_URL,
+    migrations: {
+      directory: "./migrations",
+    },
+    seeds: {
+      directory: "./seeds",
+    },
+  },
+});
 
 const app = express();
 const PORT = process.env.PORT || 3000;
