@@ -3,7 +3,7 @@ const express = require("express");
 const cors = require("cors");
 const path = require("path");
 
-//Knex ポスグレ接続
+// 追加：Knex ポスグレ接続
 const knex = require("knex")({
   client: "pg",
   connection: {
