@@ -22,9 +22,8 @@
     "express": "^5.1.0",
     "knex": "^3.1.0",
     "pg": "^8.16.3",
-    "react-rating-stars-component": "^2.2.0"
-  },
-  "devDependencies": {
+    "react-rating-stars-component": "^2.2.0",
     "nodemon": "^3.1.11"
-  }
+  },
+  "devDependencies": {}
 }
