@@ -6,13 +6,17 @@ const path = require("path");
 // 追加：Knex ポスグレ接続
 const knex = require("knex")({
   client: "pg",
-  connection: {
-    host: process.env.DB_HOST,
-    port: process.env.DB_PORT,
-    user: process.env.DB_USER,
-    password: process.env.DB_PASSWORD,
-    database: process.env.DB_NAME,
-  },
+  // 開発環境と本番環境で切り替える
+  connection:
+    process.env.NODE_ENV === "production"
+      ? process.env.DATABASE_URL
+      : {
+          host: process.env.DB_HOST,
+          port: process.env.DB_PORT,
+          user: process.env.DB_USER,
+          password: process.env.DB_PASSWORD,
+          database: process.env.DB_NAME,
+        },
 });
 
 const app = express();
@@ -103,7 +107,7 @@ app.get("/api/reviews", async (req, res) => {
         "movies.poster_path",
         "movies.release_date"
       )
-      .orderBy("reviews.created_at", "desc"); //レビューの投稿日時が新しい順番に並べる
+      .orderBy("reviews.created_at", "desc"); //レビューの投稿日時が新しい順番に並べ
 
     res.json(reviews);
   } catch (err) {
