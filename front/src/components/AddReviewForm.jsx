@@ -3,6 +3,7 @@ import MovieSearch from "./MovieSearch";
 import StarRating from "./StarRating";
 import ReviewComment from "./ReviewComment";
 import ReviewSubmitButton from "./ReviewSubmitButton";
+import CircularIndeterminate from "./CircularProgress";
 
 export default function AddReviewForm({ onClose, onSubmit }) {
   const [selectMovie, setSelectedMovie] = useState(null);
@@ -11,6 +12,10 @@ export default function AddReviewForm({ onClose, onSubmit }) {
 
   const handleSubmit = async () => {
     if (!selectMovie) return; //映画が選ばれてなかったらreturn
+
+    // const toggleVisibility = () => {
+    //   setIsVisible(!isVisible);
+    // };
 
     try {
       //映画データをDBに保存
@@ -53,10 +58,11 @@ export default function AddReviewForm({ onClose, onSubmit }) {
     <div>
       <h2>検索Form</h2>
 
+      <CircularIndeterminate />
       <MovieSearch onSelect={(movie) => setSelectedMovie(movie)} />
 
       {selectMovie && (
-        <div>
+        <div id="posting">
           <h3>選択中の映画</h3>
 
           <p>タイトル : {selectMovie.title}</p>
@@ -84,7 +90,6 @@ export default function AddReviewForm({ onClose, onSubmit }) {
           <ReviewSubmitButton onClick={handleSubmit} />
         </div>
       )}
-
       <button onClick={onClose}>閉じる</button>
     </div>
   );

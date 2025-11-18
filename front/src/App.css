@@ -40,3 +40,53 @@
 .read-the-docs {
   color: #888;
 }
+
+#input:focus {
+  border: 2px solid #ff9900;
+  z-index: 10;
+  outline: 0;
+}
+
+#input {
+  width: 300px;
+  height: 40px;
+  margin-right: 20px;
+}
+
+.homeAction {
+  display: flex; /* これで要素が横並びになる */
+  align-items: center; /*要素を垂直方向の中央に揃える（任意） */
+}
+
+#overview {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2; /* 任意の行数を指定 */
+}
+
+li {
+  list-style: none;
+  width: 100%;
+}
+
+.card {
+  margin-bottom: 20px;
+  padding: 1px;
+  display: flex;
+  border-color: rgb(0, 0, 0);
+}
+
+#title {
+  display: flex;
+  font-size: 30px;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+#posting {
+  padding-top: 100px;
+  padding-bottom: 50px;
+}

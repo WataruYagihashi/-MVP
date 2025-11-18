@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import "./App.css";
 import AddReviewForm from "./components/AddReviewForm";
 import ReviewList from "./components/ReviewList";
+import SearchList from "./components/SearchList";
 
 function App() {
   const [page, setPage] = useState("home"); // "home" or "form"
@@ -30,7 +31,11 @@ function App() {
       {page === "home" && (
         <div>
           <h1>映画レビューサイト(仮)</h1>
-          <button onClick={() => setPage("form")}>レビューを追加</button>
+
+          <div class="homeAction">
+            <SearchList />
+            <button onClick={() => setPage("form")}>レビューを追加</button>
+          </div>
 
           <ReviewList reviews={reviews} />
         </div>

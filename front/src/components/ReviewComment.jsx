@@ -8,7 +8,7 @@ export default function ReviewComment({ value, onChange }) {
         onChange={(e) => onChange(e.target.value)}
         placeholder="レビューを書いてください"
         rows={5}
-        style={{ width: "100%", padding: "8px" }}
+        style={{ width: "80%", padding: "8px" }}
       />
     </div>
   );
