@@ -81,7 +81,7 @@ export default function AddReviewForm({ onClose, onSubmit }) {
           />
 
           <h3>評価</h3>
-          <StarRating value={rating} onChange={setRating} />
+          <StarRating value={rating} onChange={setRating} readOnly={false} />
 
           <h3>コメント</h3>
           <ReviewComment value={comment} onChange={setComment} />

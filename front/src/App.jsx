@@ -7,6 +7,7 @@ import SearchList from "./components/SearchList";
 function App() {
   const [page, setPage] = useState("home"); // "home" or "form"
   const [reviews, setReviews] = useState([]);
+  const [searchKeyword, setSearchKeyword] = useState(""); // 🔵検索語
 
   //初回レンダリング時に実行するuseEffect => サーバにレビュー一覧全部くれ！！
   useEffect(() => {
@@ -25,6 +26,13 @@ function App() {
     setPage("home");
   };
 
+  const filteredReviews =
+    searchKeyword.trim() === ""
+      ? reviews
+      : reviews.filter((rev) =>
+          rev.title.toLowerCase().includes(searchKeyword.toLowerCase())
+        );
+
   return (
     <div>
       {/* ホーム画面 */}
@@ -33,11 +41,11 @@ function App() {
           <h1>映画レビューサイト(仮)</h1>
 
           <div class="homeAction">
-            <SearchList />
+            <SearchList onSearch={setSearchKeyword} />
             <button onClick={() => setPage("form")}>レビューを追加</button>
           </div>
 
-          <ReviewList reviews={reviews} />
+          <ReviewList reviews={filteredReviews} />
         </div>
       )}
 

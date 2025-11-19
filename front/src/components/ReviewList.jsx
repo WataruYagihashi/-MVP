@@ -9,9 +9,11 @@ export default function ReviewList({ reviews }) {
   return (
     <div>
       <h2>レビュー一覧</h2>
-      {reviews.map((rev, index) => (
-        <ReviewItem key={index} review={rev} />
-      ))}
+      <div className="review-grid">
+        {reviews.map((rev) => (
+          <ReviewItem key={rev.id} review={rev} />
+        ))}
+      </div>
     </div>
   );
 }

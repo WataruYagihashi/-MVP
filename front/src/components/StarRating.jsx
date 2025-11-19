@@ -42,13 +42,28 @@
 //   );
 // }
 
-import Rating from "@mui/material/Rating";
-import Stack from "@mui/material/Stack";
+// import Rating from "@mui/material/Rating";
 
-export default function StarRating() {
+// export default function StarRating() {
+//   return (
+//     <div style={{ textAlign: "center" }}>
+//       <Rating name="size-large" defaultValue={0} size="large" />
+//     </div>
+//   );
+// }
+
+import Rating from "@mui/material/Rating";
+
+export default function StarRating({ value = 0, onChange, readOnly = false }) {
   return (
     <div style={{ textAlign: "center" }}>
-      <Rating name="size-large" defaultValue={0} size="large" />
+      <Rating
+        name="star-rating"
+        value={value}
+        size="large"
+        readOnly={readOnly}
+        onChange={readOnly ? undefined : (e, newValue) => onChange(newValue)}
+      />
     </div>
   );
 }
