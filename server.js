@@ -2,8 +2,31 @@ require("dotenv").config();
 const express = require("express");
 const cors = require("cors");
 const path = require("path");
+// const session = require("express-session"); //Expressでログイン状態の保存
+// const passport = require("passport"); //passport本体
+// const crypto = require("crypto"); //ハッシュ処理を行うモジュール
+// const LocalStrategy = require("passport-local"); //ユーザー名＋パスワードでログインする方式
+// const KnexSessionStore = require("connect-session-knex")(session); //セッション情報を PostgreSQL に保存
 
-// 追加：Knex ポスグレ接続
+// const store = new KnexSessionStore({
+//   knex,
+//   tablename: "sessions",
+// });
+
+// app.use(
+//   session({
+//     secret: "your-secret",
+//     resave: false,
+//     saveUninitialized: false,
+//     store,
+//     cookie: { secure: false },
+//   })
+// );
+
+// app.use(passport.initialize());
+// app.use(passport.session());
+
+//Knex ポスグレ接続
 const knex = require("knex")({
   client: "pg",
   // 開発環境と本番環境で切り替える

@@ -4,7 +4,7 @@ import { createTheme, ThemeProvider } from "@mui/material/styles";
 const theme = createTheme({
   palette: {
     ochre: {
-      main: "#E3D026",
+      main: "#FF9900",
       contrastText: "#242105",
     },
   },
@@ -22,7 +22,7 @@ export default function MovieSearch({ onSelect }) {
 
   return (
     <div>
-      <h3>映画を検索</h3>
+      <h3>🎬 映画を検索 🎞️</h3>
       <div class="search">
         <input
           id="input"

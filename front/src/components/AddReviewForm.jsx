@@ -56,20 +56,16 @@ export default function AddReviewForm({ onClose, onSubmit }) {
 
   return (
     <div>
-      <h2>検索Form</h2>
-
-      <CircularIndeterminate />
+      {/* <h2>検索Form</h2> */}
+      {/* <CircularIndeterminate /> */}
       <MovieSearch onSelect={(movie) => setSelectedMovie(movie)} />
 
       {selectMovie && (
         <div id="posting">
           <h3>選択中の映画</h3>
-
           <p>タイトル : {selectMovie.title}</p>
-
           {/* 公開年 */}
           <p>公開年 : {selectMovie.release_date?.slice(0, 4) ?? "不明"}</p>
-
           {/* ポスター画像 */}
           <img
             src={
@@ -79,18 +75,17 @@ export default function AddReviewForm({ onClose, onSubmit }) {
             }
             alt={selectMovie.title}
           />
-
           <h3>評価</h3>
           <StarRating value={rating} onChange={setRating} readOnly={false} />
-
           <h3>コメント</h3>
           <ReviewComment value={comment} onChange={setComment} />
-
           {/*投稿ボタン */}
           <ReviewSubmitButton onClick={handleSubmit} />
         </div>
       )}
-      <button onClick={onClose}>閉じる</button>
+      <button id="close" onClick={onClose}>
+        閉じる
+      </button>
     </div>
   );
 }

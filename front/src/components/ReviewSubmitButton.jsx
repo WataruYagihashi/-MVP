@@ -4,7 +4,7 @@ import { createTheme, ThemeProvider } from "@mui/material/styles";
 const theme = createTheme({
   palette: {
     ochre: {
-      main: "#E3D026",
+      main: "#FF9900",
       contrastText: "#242105",
     },
   },

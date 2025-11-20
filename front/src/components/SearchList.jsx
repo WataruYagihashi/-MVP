@@ -1,5 +1,15 @@
 // SearchList.jsx
 import React, { useState } from "react";
+import Button from "@mui/material/Button";
+import { createTheme, ThemeProvider } from "@mui/material/styles";
+const theme = createTheme({
+  palette: {
+    ochre: {
+      main: "#FF9900",
+      contrastText: "#242105",
+    },
+  },
+});
 
 export default function SearchList({ onSearch }) {
   const [keyword, setKeyword] = useState("");
@@ -17,9 +27,34 @@ export default function SearchList({ onSearch }) {
         value={keyword}
         onChange={(e) => setKeyword(e.target.value)}
       />
-      <button id="button" onClick={handleSearch}>
-        検索
-      </button>
+      <ThemeProvider theme={theme}>
+        <Button
+          variant="contained"
+          // disabled={disabled}
+          onClick={handleSearch}
+          color="ochre"
+          sx={{ width: 100, height: 50, fontSize: "1.5rem" }}
+        >
+          検索
+        </Button>
+        {/* <button id="button" onClick={handleSearch}>
+          検索
+        </button>  */}
+      </ThemeProvider>
     </div>
   );
+}
+
+{
+  /* <ThemeProvider theme={theme}>
+      <Button
+        variant="contained"
+        disabled={disabled}
+        onClick={onClick}
+        color="ochre"
+        sx={{ width: "30%", height: 60, fontSize: "1.5rem", mt: 3 }}
+      >
+        投稿する
+      </Button>
+    </ThemeProvider> */
 }

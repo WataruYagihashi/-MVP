@@ -5,6 +5,9 @@
   text-align: center;
 }
 
+body {
+  background-color: #fff8e7;
+}
 .logo {
   height: 6em;
   padding: 1.5em;
@@ -48,7 +51,7 @@
 }
 
 #input {
-  width: 300px;
+  width: 400px;
   height: 40px;
   margin-right: 20px;
 }
@@ -92,7 +95,7 @@ html {
 }
 
 .review-card {
-  width: 320px;
+  width: 400px;
   border-radius: 12px;
   overflow: hidden;
   background: #fff;
@@ -146,4 +149,26 @@ html {
   display: flex;
   flex-wrap: wrap;
   gap: 16px;
+}
+
+.homeAction {
+  display: flex;
+  justify-content: center; /* 中央寄せ */
+  align-items: center; /* 垂直方向も揃える */
+  gap: 20px; /* 要素間の余白（調整可） */
+  margin-top: 20px; /* 上下の余白を追加（必要なら） */
+}
+
+h1 {
+  margin: 0;
+  margin-top: 60px;
+}
+
+h2 {
+  margin: 0;
+  margin-bottom: 30px;
+}
+
+#close {
+  border-color: #ff9900;
 }

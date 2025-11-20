@@ -3,6 +3,16 @@ import "./App.css";
 import AddReviewForm from "./components/AddReviewForm";
 import ReviewList from "./components/ReviewList";
 import SearchList from "./components/SearchList";
+import Button from "@mui/material/Button";
+import { createTheme, ThemeProvider } from "@mui/material/styles";
+const theme = createTheme({
+  palette: {
+    ochre: {
+      main: "#FF9900",
+      contrastText: "#242105",
+    },
+  },
+});
 
 function App() {
   const [page, setPage] = useState("home"); // "home" or "form"
@@ -38,11 +48,24 @@ function App() {
       {/* ホーム画面 */}
       {page === "home" && (
         <div>
-          <h1>映画レビューサイト(仮)</h1>
+          <h1>🎥映画レビューサイト🍿</h1>
+          <h2>
+            ~次にあなたの人生が変わる映画は、ここで出会えるかもしれません~
+          </h2>
 
           <div class="homeAction">
             <SearchList onSearch={setSearchKeyword} />
-            <button onClick={() => setPage("form")}>レビューを追加</button>
+            <ThemeProvider theme={theme}>
+              <Button
+                variant="contained"
+                id="plasButton"
+                onClick={() => setPage("form")}
+                color="ochre"
+                sx={{ width: 210, height: 50, fontSize: "1.5rem" }}
+              >
+                レビューを追加
+              </Button>
+            </ThemeProvider>
           </div>
 
           <ReviewList reviews={filteredReviews} />
