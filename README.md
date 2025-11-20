@@ -7,17 +7,17 @@
 このプロジェクトは、映画のレビューを投稿・閲覧できるフルスタック Web アプリです。
 ユーザーは映画を検索してレビューを投稿したり、他のユーザーのレビューを閲覧したりできます。
 
-・フロントエンド：React + MUI
-・バックエンド：Node.js + Express
-・データベース：PostgreSQL + Knex
-・API：TMDB API https://www.themoviedb.org/
+- フロントエンド：React + MUI
+- バックエンド：Node.js + Express
+- データベース：PostgreSQL + Knex
+- API：TMDB API https://www.themoviedb.org/
 
 ## ⚙️ 主な機能
 
-・映画検索
-・映画のレビュー投稿
-・投稿済みのレビューの一覧表示
-・レビューの一覧表示からタイトル検索
+- 映画検索
+- 映画のレビュー投稿
+- 投稿済みのレビューの一覧表示
+- レビューの一覧表示からタイトル検索
 
 ## 事前準備
 
@@ -41,8 +41,8 @@ CREATE DATABASE moviedb;
 npx knex migrate:latest --knexfile knexfile.js
 ```
 
-.env ファイルの作成（USER や PASSWORD など必要に応じて記述してください）
-API キーの取得は TMDB 公式サイトから簡単にできます => https://www.themoviedb.org/
+- .env ファイルの作成（USER や PASSWORD など必要に応じて記述してください）
+- API キーの取得は TMDB 公式サイトから簡単にできます => https://www.themoviedb.org/
 
 ```sh
 DB_HOST=localhost
