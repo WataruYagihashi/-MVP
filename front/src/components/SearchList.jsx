@@ -44,17 +44,3 @@ export default function SearchList({ onSearch }) {
     </div>
   );
 }
-
-{
-  /* <ThemeProvider theme={theme}>
-      <Button
-        variant="contained"
-        disabled={disabled}
-        onClick={onClick}
-        color="ochre"
-        sx={{ width: "30%", height: 60, fontSize: "1.5rem", mt: 3 }}
-      >
-        投稿する
-      </Button>
-    </ThemeProvider> */
-}
