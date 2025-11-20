@@ -4,8 +4,8 @@
 
 ## 💡 プロジェクト概要
 
-このプロジェクトは、映画のレビューを投稿・閲覧できるフルスタック Web アプリです。
-ユーザーは映画を検索してレビューを投稿したり、他のユーザーのレビューを閲覧したりできます。
+- このプロジェクトは、映画のレビューを投稿・閲覧できるフルスタック Web アプリです。
+- ユーザーは映画を検索してレビューを投稿したり、他のユーザーのレビューを閲覧したりできます。
 
 - フロントエンド：React + MUI
 - バックエンド：Node.js + Express
@@ -21,24 +21,12 @@
 
 ## 事前準備
 
-依存関係のインストール
-
-```sh
-npm install
-```
-
 データベースの構築
 
 ```sh
 psql
 CREATE DATABASE moviedb;
 \q
-```
-
-マイグレーション実行
-
-```sh
-npx knex migrate:latest --knexfile knexfile.js
 ```
 
 - .env ファイルの作成（USER や PASSWORD など必要に応じて記述してください）
@@ -53,27 +41,23 @@ DB_NAME=<データベース名>
 TMDB_API_KEY=<TMDBのAPIキー>
 ```
 
-サーバ起動
-
-```sh
-npm run dev
-```
-
-フロントの依存関係をインストール
-
-```sh
-cd front
-npm install
-```
-
-サーバ起動
-
-```sh
-npm run dev
-```
-
 ビルドコマンドの実行
 
 ```sh
 npm run build
 ```
+
+サーバ起動
+
+```sh
+npm start
+cd /front
+npm start
+```
+
+# ホームページ
+
+![alt text](image.png)
+
+#検索ぺーじ
+![alt text](image-1.png)
