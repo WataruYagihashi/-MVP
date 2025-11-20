@@ -59,5 +59,6 @@ npm start
 
 ![alt text](image.png)
 
-#検索ぺーじ
+# 検索ページ
+
 ![alt text](image-1.png)
