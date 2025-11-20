@@ -50,9 +50,9 @@ npm run build
 サーバ起動
 
 ```sh
-npm start
+npm run dev
 cd /front
-npm start
+npm run dev
 ```
 
 # ホームページ
