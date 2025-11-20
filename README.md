@@ -1,16 +1,79 @@
-# React + Vite
+# 🎬 映画レビューサイト
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+次にあなたの人生が変わる映画は、ここで出会えるかもしれません。
 
-Currently, two official plugins are available:
+## 💡 プロジェクト概要
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+このプロジェクトは、映画のレビューを投稿・閲覧できるフルスタック Web アプリです。
+ユーザーは映画を検索してレビューを投稿したり、他のユーザーのレビューを閲覧したりできます。
 
-## React Compiler
+・フロントエンド：React + MUI
+・バックエンド：Node.js + Express
+・データベース：PostgreSQL + Knex
+・API：TMDB API https://www.themoviedb.org/
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## ⚙️ 主な機能
 
-## Expanding the ESLint configuration
+・映画検索
+・映画のレビュー投稿
+・投稿済みのレビューの一覧表示
+・レビューの一覧表示からタイトル検索
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 事前準備
+
+依存関係のインストール
+
+```sh
+npm install
+```
+
+データベースの構築
+
+```sh
+psql
+CREATE DATABASE moviedb;
+\q
+```
+
+マイグレーション実行
+
+```sh
+npx knex migrate:latest --knexfile knexfile.js
+```
+
+.env ファイルの作成（USER や PASSWORD など必要に応じて記述してください）
+API キーの取得は TMDB 公式サイトから簡単にできます => https://www.themoviedb.org/
+
+```sh
+DB_HOST=localhost
+DB_PORT=5432
+DB_USER=<DBユーザー>
+DB_PASSWORD=<DBパスワード>
+DB_NAME=<データベース名>
+TMDB_API_KEY=<TMDBのAPIキー>
+```
+
+サーバ起動
+
+```sh
+npm run dev
+```
+
+フロントの依存関係をインストール
+
+```sh
+cd front
+npm install
+```
+
+サーバ起動
+
+```sh
+npm run dev
+```
+
+ビルドコマンドの実行
+
+```sh
+npm run build
+```
