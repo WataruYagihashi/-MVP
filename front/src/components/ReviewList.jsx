@@ -8,7 +8,7 @@ export default function ReviewList({ reviews }) {
 
   return (
     <div>
-      <h1>レビュー</h1>
+      {/* <h1>みんなのレビュー</h1> */}
       <div className="review-grid">
         {reviews.map((rev) => (
           <ReviewItem key={rev.id} review={rev} />
